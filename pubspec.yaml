@@ -66,6 +66,9 @@ dependencies:
   flutter_animated_dialog: ^2.0.1
   convex_bottom_bar: ^3.0.0
   vertical_card_pager: ^1.5.0
+  google_directions_api: ^0.9.1
+  flutter_polyline_points: ^1.0.0
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +98,7 @@ flutter:
     - assets/images/onboarding/
     - assets/icons/
     - assets/icons/social/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

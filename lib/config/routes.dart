@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:virtual_tour_app/home_screen/presentation/screens/home_screen.dart';
+import 'package:virtual_tour_app/map_screen/presentation/screens/map_screen.dart';
 
 import '../splash_screen/presentation/screens/splash_screen.dart';
 
@@ -22,6 +23,11 @@ final routes = GoRouter(
       path: HomeScreen.route,
       builder: (BuildContext context, GoRouterState state) =>
           const HomeScreen(),
+    ),
+    GoRoute(
+      name: MapScreen.name,
+      path: MapScreen.route,
+      builder: (BuildContext context, GoRouterState state) => const MapScreen(),
     ),
   ],
 );

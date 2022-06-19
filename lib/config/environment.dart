@@ -1,6 +1,7 @@
 class AppConfig {
   static const String apiBaseUrl =
       'https://buenavista-virtual-tour-app.herokuapp.com';
+  static const googleMapsApi = 'AIzaSyAm0OXMsYRwKu20xE-xNbeGae-EyFKW8Gk';
 }
 
 enum ApiType {

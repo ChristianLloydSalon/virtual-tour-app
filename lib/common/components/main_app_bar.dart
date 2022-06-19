@@ -22,6 +22,7 @@ class _AppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: const Color(0xFF202A42),
       title: const Text(kBrandName),
     );
   }
