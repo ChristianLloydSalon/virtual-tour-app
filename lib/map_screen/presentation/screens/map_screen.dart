@@ -7,10 +7,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:location/location.dart';
-import 'package:virtual_tour_app/common/components/main_app_bar.dart';
 import 'package:virtual_tour_app/common/components/main_bottom_bar.dart';
 import 'package:virtual_tour_app/home_screen/domain/model/tourist_spot_state.dart';
 import 'package:virtual_tour_app/home_screen/presentation/view_model/tourist_spots_view_model.dart';
+import 'package:virtual_tour_app/map_screen/presentation/components/image_network.dart';
 
 import '../../../home_screen/domain/model/tourist_spot.dart';
 import '../view_model/directions_view_model.dart';
@@ -119,7 +119,6 @@ class _MapScreenState extends State<MapScreen> {
     }, []);
 
     return Scaffold(
-      appBar: MainAppBar(),
       bottomNavigationBar: MainBottomBar(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF202A42),
@@ -177,11 +176,54 @@ class _MapScreenState extends State<MapScreen> {
                           height: 300,
                           child: Padding(
                             padding: const EdgeInsets.all(20.0),
-                            child: Text(
-                              (touristSpot.value?.location) ?? '',
-                              style: kDirectionsStyle.copyWith(
-                                color: Colors.black,
-                              ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ImageNetwork(
+                                  url: touristSpot.value!.image,
+                                  height: 100,
+                                  width: 100,
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  touristSpot.value!.name,
+                                  textAlign: TextAlign.center,
+                                  style: kDirectionsStyle.copyWith(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  touristSpot.value!.location,
+                                  style: kDirectionsStyle.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(height: 30),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: const Color(0xFF202A42),
+                                  ),
+                                  onPressed: () {},
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Icon(Icons.card_travel),
+                                      const SizedBox(width: 5),
+                                      Text(
+                                        'Go to details',
+                                        style: kDirectionsStyle.copyWith(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         );

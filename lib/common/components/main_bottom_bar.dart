@@ -26,7 +26,9 @@ class _BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name;
     return ConvexAppBar(
-      backgroundColor: const Color(0xFF202A42),
+      backgroundColor: Colors.white,
+      activeColor: Colors.blue[300],
+      color: Colors.blue,
       initialActiveIndex: currentRoute == HomeScreen.name
           ? 0
           : currentRoute == MapScreen.name
