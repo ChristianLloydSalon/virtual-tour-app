@@ -1,4 +1,4 @@
-const kBrandName = 'BueNearby';
+const kBrandName = 'BueNearby Tourist Spots Virtual Tour App';
 const kLogoPath = 'assets/images/logo-light.png';
 const kFontFamilyPrimary = 'Open Sans';
 const kFontFamilySecondary = 'Poppins';

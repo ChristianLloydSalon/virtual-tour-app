@@ -6,6 +6,7 @@ import 'package:virtual_tour_app/config/environment.dart';
 import 'package:virtual_tour_app/config/routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   DirectionsService.init(AppConfig.googleMapsApi);
   runApp(const ProviderScope(child: App()));
 }

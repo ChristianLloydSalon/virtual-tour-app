@@ -1,6 +1,7 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:virtual_tour_app/common/screens/about_screen.dart';
 import 'package:virtual_tour_app/home_screen/presentation/screens/home_screen.dart';
 import 'package:virtual_tour_app/map_screen/presentation/screens/map_screen.dart';
 
@@ -44,6 +45,8 @@ class _BottomBar extends StatelessWidget {
           context.go(HomeScreen.route);
         } else if (value == 1) {
           context.go(MapScreen.route);
+        } else {
+          context.go(AboutScreen.route);
         }
       },
     );

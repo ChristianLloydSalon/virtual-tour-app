@@ -112,7 +112,6 @@ class _SearchArea extends StatelessWidget {
                 TextField(
                   onChanged: (value) {
                     query.value = value;
-                    print(query.value);
                   },
                   decoration: const InputDecoration(
                     filled: true,
@@ -134,7 +133,7 @@ class _SearchArea extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: 90,
+              height: 80,
               color: Colors.white24,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -145,12 +144,12 @@ class _SearchArea extends StatelessWidget {
                       kBrandName,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(height: 6),
+                    SizedBox(height: 5),
                     Text(
                       'Explore the hottest tourist spots.',
                       style: TextStyle(

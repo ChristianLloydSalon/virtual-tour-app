@@ -71,6 +71,8 @@ dependencies:
   dio: ^4.0.6
   tab_container: ^2.0.0
   visibility_detector: ^0.3.3
+  flutter_launcher_icons: ^0.9.3
+  package_info_plus: ^1.4.2
 
 dev_dependencies:
   flutter_test:
@@ -137,3 +139,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_icons:
+  # The following line enables "flutter_icons" to be used from your
+  # application.
+  uses-material-design: true
+  android: "launcher_icon"
+  image_path: "assets/images/logo-light.png" 
