@@ -1,0 +1,50 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+default_platform(:android)
+
+flavor = ENV["FIREBASE_APP_FLAVOR"]
+
+platform :android do
+    desc "Build the APK app"
+    lane :build do
+        sh("flutter", "clean")
+        sh("flutter", "pub", "get")
+        sh("flutter", "build", "apk", "--release", "--flavor", flavor)
+    end
+
+    desc "For Testing"
+    lane :test do
+        build()
+        firebase_app_distribution(
+            app: ENV["FIREBASE_APP_ID"],
+            groups: ENV["FIREBASE_TEST_GROUP"],
+            firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+            release_notes: ENV["FIREBASE_RELEASE_NOTES_FILE"],
+            apk_path: "../build/app/outputs/flutter-apk/app-" + flavor + "-release.apk"
+        )
+    end
+
+    desc "Distribute for Release"
+    lane :release_production do
+        build()
+        firebase_app_distribution(
+            app: ENV["FIREBASE_APP_ID"],
+            groups: ENV["FIREBASE_RELEASE_GROUP"],
+            firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+            release_notes: ENV["FIREBASE_RELEASE_NOTES_FILE"],
+            apk_path: "../build/app/outputs/flutter-apk/app-" + flavor + "-release.apk"
+        )
+    end
+end

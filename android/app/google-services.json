@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "379514518907",
+    "project_id": "buenavista-virtual-tour-41fe1",
+    "storage_bucket": "buenavista-virtual-tour-41fe1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379514518907:android:66dfdb829a2884ed0e51de",
+        "android_client_info": {
+          "package_name": "com.example.virtual_tour_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379514518907-ra0p39j2lsnkn3sf27jagiuc7s8so8tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAck89kUFFDNOq0b_9FFhARdGbBy3eBqaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379514518907-ra0p39j2lsnkn3sf27jagiuc7s8so8tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
