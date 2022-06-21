@@ -13,7 +13,6 @@ class TouristSpotRemoteSource {
 
   Future<List<TouristSpot>> getTouristSpots() async {
     final url = Uri.parse('$apiUrl/all');
-    print(url);
     final response = await http.get(
       url,
       headers: {

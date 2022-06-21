@@ -11,7 +11,6 @@ class VideoRemoteSource {
 
   Future<List<Video>> getVideos({required int touristSpotId}) async {
     final url = Uri.parse('$apiUrl/$touristSpotId/${ApiType.video.type}/all');
-    print(url);
     final response = await http.get(url);
     if (response.statusCode == StatusCode.OK) {
       final data = jsonDecode(response.body);
