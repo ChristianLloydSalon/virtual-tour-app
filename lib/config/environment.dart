@@ -9,6 +9,7 @@ enum ApiType {
   touristSpot,
   picture,
   feature,
+  video,
 }
 
 extension ApiTypeExtension on ApiType {
@@ -22,6 +23,8 @@ extension ApiTypeExtension on ApiType {
         return 'picture';
       case ApiType.feature:
         return 'feature';
+      case ApiType.video:
+        return 'video';
       default:
         return 'health';
     }

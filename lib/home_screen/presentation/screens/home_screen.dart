@@ -44,7 +44,7 @@ class HomeScreen extends HookWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: _TouristSpotsListView(query: search.value),
               ),
             ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:virtual_tour_app/config/constants.dart';
 import 'package:virtual_tour_app/home_screen/domain/model/tourist_spot.dart';
 
-enum TouristSpotStatus {
+enum SpotStatus {
   initial,
   loading,
   loaded,
@@ -11,25 +11,25 @@ enum TouristSpotStatus {
 }
 
 @immutable
-class TouristSpotState extends Equatable {
-  final TouristSpotStatus? status;
-  final List<TouristSpot> items;
+class SpotState extends Equatable {
+  final SpotStatus? status;
+  final TouristSpot? item;
   final String? error;
 
-  const TouristSpotState({
-    this.status = TouristSpotStatus.initial,
-    this.items = const [],
+  const SpotState({
+    this.status = SpotStatus.initial,
+    this.item,
     this.error = kDefaultErrorMessage,
   });
 
-  TouristSpotState copyWith({
-    TouristSpotStatus? status,
-    List<TouristSpot>? items,
+  SpotState copyWith({
+    SpotStatus? status,
+    TouristSpot? item,
     String? error,
   }) {
-    return TouristSpotState(
+    return SpotState(
       status: status ?? this.status,
-      items: items ?? this.items,
+      item: item ?? this.item,
       error: error ?? this.error,
     );
   }
@@ -37,7 +37,7 @@ class TouristSpotState extends Equatable {
   @override
   List<Object?> get props => [
         status,
-        items,
+        item,
         error,
       ];
 }

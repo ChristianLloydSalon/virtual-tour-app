@@ -1,4 +1,4 @@
-const kBrandName = 'Buenavista Virtual Tour App';
+const kBrandName = 'BueNearby';
 const kLogoPath = 'assets/images/logo-light.png';
 const kFontFamilyPrimary = 'Open Sans';
 const kFontFamilySecondary = 'Poppins';

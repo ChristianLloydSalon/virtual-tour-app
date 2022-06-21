@@ -12,6 +12,7 @@ import 'package:virtual_tour_app/home_screen/domain/model/tourist_spot_state.dar
 import 'package:virtual_tour_app/home_screen/presentation/view_model/tourist_spots_view_model.dart';
 import 'package:virtual_tour_app/map_screen/presentation/components/image_network.dart';
 
+import '../../../details_screen/presentation/screens/details_screen.dart';
 import '../../../home_screen/domain/model/tourist_spot.dart';
 import '../view_model/directions_view_model.dart';
 
@@ -208,7 +209,16 @@ class _MapScreenState extends State<MapScreen> {
                                   style: ElevatedButton.styleFrom(
                                     primary: const Color(0xFF202A42),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DetailsScreen(
+                                          id: touristSpot.value!.id,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [

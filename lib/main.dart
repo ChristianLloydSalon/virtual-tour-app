@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_directions_api/google_directions_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:virtual_tour_app/config/constants.dart';
@@ -16,11 +15,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // set fullscreen mode
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.immersive,
-      overlays: SystemUiOverlay.values,
-    );
     return MaterialApp.router(
       title: kBrandName,
       theme: ThemeData.light(),
