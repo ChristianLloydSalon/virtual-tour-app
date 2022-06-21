@@ -81,6 +81,8 @@ class ReminderScreen extends HookWidget {
                       } else {
                         isLoading.value = false;
                       }
+                    } else {
+                      isGpsOn.value = true;
                     }
                   },
                   child: isLoading.value
