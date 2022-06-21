@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:virtual_tour_app/common/components/custom_loading_indicator.dart';
 import 'package:virtual_tour_app/config/constants.dart';
-import 'package:virtual_tour_app/home_screen/presentation/screens/home_screen.dart';
+import 'package:virtual_tour_app/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:virtual_tour_app/splash_screen/domain/model/heatlh_check_state.dart';
 import 'package:virtual_tour_app/splash_screen/presentation/view_model/health_check_view_model.dart';
 
@@ -46,7 +46,7 @@ class SplashScreen extends HookWidget {
     if (state.status == HeatlhCheckStatus.loaded) {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) {
-          context.go(HomeScreen.route);
+          context.go(OnBoardingScreen.route);
         },
       );
     }

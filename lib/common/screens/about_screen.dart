@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:virtual_tour_app/common/components/main_bottom_bar.dart';
 import 'package:virtual_tour_app/config/constants.dart';
 
@@ -11,22 +10,6 @@ class AboutScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = useState(false);
-    final version = useState('');
-
-    _load() async {
-      isLoading.value = true;
-      PackageInfo info = await PackageInfo.fromPlatform();
-      version.value = info.version;
-      print(version.value);
-      isLoading.value = false;
-    }
-
-    useEffect(() {
-      Future.microtask(() => _load());
-      return;
-    }, const []);
-
     return Scaffold(
       bottomNavigationBar: MainBottomBar(),
       body: Padding(
@@ -65,11 +48,6 @@ class AboutScreen extends HookWidget {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                // Group leader : JV Batausa
-                // Member: Arlene Camacho
-                // Herna Millanes
-                // Cemie Betalmos
-                // (BSIT IV)
                 const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,

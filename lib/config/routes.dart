@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:virtual_tour_app/common/screens/reminder_screen.dart';
 import 'package:virtual_tour_app/home_screen/presentation/screens/home_screen.dart';
 import 'package:virtual_tour_app/map_screen/presentation/screens/map_screen.dart';
+import 'package:virtual_tour_app/onboarding/presentation/screens/onboarding_screen.dart';
 
 import '../common/screens/about_screen.dart';
 import '../splash_screen/presentation/screens/splash_screen.dart';
@@ -18,6 +20,18 @@ final routes = GoRouter(
       path: SplashScreen.route,
       builder: (BuildContext context, GoRouterState state) =>
           const SplashScreen(),
+    ),
+    GoRoute(
+      name: OnBoardingScreen.name,
+      path: OnBoardingScreen.route,
+      builder: (BuildContext context, GoRouterState state) =>
+          OnBoardingScreen(),
+    ),
+    GoRoute(
+      name: ReminderScreen.name,
+      path: ReminderScreen.route,
+      builder: (BuildContext context, GoRouterState state) =>
+          const ReminderScreen(),
     ),
     GoRoute(
       name: HomeScreen.name,
