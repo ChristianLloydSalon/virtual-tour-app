@@ -25,95 +25,97 @@ class DetailsScreen extends HookWidget {
     final state = useProvider(touristSpotViewModel(id));
     final tabController = useTabController(initialLength: 4);
 
-    return Scaffold(
-      body: state.status == SpotStatus.loading
-          ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                Stack(
-                  alignment: AlignmentDirectional.bottomEnd,
-                  children: [
-                    SizedBox(
-                      height: 300,
-                      width: double.infinity,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                        ),
-                        child: ImageNetwork(
-                          url: state.item?.image ?? '',
-                          width: double.infinity,
-                          height: 300,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      color: Colors.white24,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              state.item?.name ?? '',
-                              style: const TextStyle(
-                                color: Colors.black87,
-                                fontSize: 18,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Icon(Icons.star, color: Colors.yellow),
-                    ),
-                  ],
-                ),
-                TabBar(
-                  isScrollable: true,
-                  labelColor: Colors.blue,
-                  indicatorColor: Colors.blue.shade300,
-                  unselectedLabelColor: Colors.black45,
-                  labelStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Poppins',
-                  ),
-                  controller: tabController,
-                  tabs: const [
-                    Tab(
-                      text: 'Overview',
-                    ),
-                    Tab(
-                      text: 'Features',
-                    ),
-                    Tab(
-                      text: 'Videos',
-                    ),
-                    Tab(
-                      text: 'Contacts',
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: TabBarView(
-                    controller: tabController,
+    return SafeArea(
+      child: Scaffold(
+        body: state.status == SpotStatus.loading
+            ? const Center(child: CircularProgressIndicator())
+            : Column(
+                children: [
+                  Stack(
+                    alignment: AlignmentDirectional.bottomEnd,
                     children: [
-                      _OverviewPage(spot: state.item!),
-                      _FeaturesView(spot: state.item!),
-                      _VideosListView(touristId: state.item!.id),
-                      _ContactsView(spot: state.item!),
+                      SizedBox(
+                        height: 300,
+                        width: double.infinity,
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomRight: Radius.circular(20),
+                          ),
+                          child: ImageNetwork(
+                            url: state.item?.image ?? '',
+                            width: double.infinity,
+                            height: 300,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        color: Colors.white24,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                state.item?.name ?? '',
+                                style: const TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 18,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Icon(Icons.star, color: Colors.yellow),
+                      ),
                     ],
                   ),
-                ),
-              ],
-            ),
+                  TabBar(
+                    isScrollable: true,
+                    labelColor: Colors.blue,
+                    indicatorColor: Colors.blue.shade300,
+                    unselectedLabelColor: Colors.black45,
+                    labelStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Poppins',
+                    ),
+                    controller: tabController,
+                    tabs: const [
+                      Tab(
+                        text: 'Overview',
+                      ),
+                      Tab(
+                        text: 'Features',
+                      ),
+                      Tab(
+                        text: 'Videos',
+                      ),
+                      Tab(
+                        text: 'Contacts',
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      controller: tabController,
+                      children: [
+                        _OverviewPage(spot: state.item!),
+                        _FeaturesView(spot: state.item!),
+                        _VideosListView(touristId: state.item!.id),
+                        _ContactsView(spot: state.item!),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+      ),
     );
   }
 }
@@ -139,6 +141,11 @@ class _OverviewPage extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: 'Poppins',
               ),
+            ),
+            _ListView(
+              listIcon: Icons.timer,
+              label: 'Open Hours',
+              list: [spot.openHours],
             ),
             _ListView(
               listIcon: Icons.check,

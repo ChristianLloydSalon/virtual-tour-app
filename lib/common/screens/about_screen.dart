@@ -62,7 +62,7 @@ class AboutScreen extends HookWidget {
                           fontSize: 16,
                         ),
                       ),
-                      Text('JV Bautista'),
+                      Text('JV Batausa'),
                       SizedBox(height: 5),
                       Text(
                         'Members: ',

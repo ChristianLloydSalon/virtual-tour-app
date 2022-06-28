@@ -252,11 +252,11 @@ class _MapScreenState extends State<MapScreen> {
               child: FloatingActionButton(
                 backgroundColor: const Color(0xFF202A42),
                 onPressed: () {
-                  if (directions.origin != null) {
+                  if (current != null) {
                     Future.microtask(
                       () => _animateToLocation(
                         CameraPosition(
-                          target: directions.origin!,
+                          target: current!,
                           zoom: 12,
                         ),
                       ),
