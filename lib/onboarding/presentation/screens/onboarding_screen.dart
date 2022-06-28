@@ -31,7 +31,7 @@ class OnBoardingScreen extends HookWidget {
     OnBoardingPageModel(
       title: 'Welcome to $kBrandName',
       description: 'Explore the hottest tourist spots now.',
-      image: 'assets/images/logo-light.png',
+      image: kLogoPath,
     ),
     OnBoardingPageModel(
       title: 'Search',
