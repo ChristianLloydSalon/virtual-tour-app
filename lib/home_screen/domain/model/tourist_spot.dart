@@ -8,6 +8,7 @@ class TouristSpot {
   final String location;
   final String name;
   final String openHours;
+  final String reservationLink;
   final List<String> preparations;
   final List<String> restrictions;
 
@@ -23,6 +24,7 @@ class TouristSpot {
     required this.openHours,
     required this.preparations,
     required this.restrictions,
+    required this.reservationLink,
   });
 
   factory TouristSpot.fromJson(Map<String, dynamic> json) {
@@ -39,6 +41,7 @@ class TouristSpot {
       location: json['location'] as String? ?? '',
       name: json['name'] as String? ?? '',
       openHours: json['openHours'] as String? ?? '',
+      reservationLink: json['reservationLink'] as String? ?? '',
       expenditures: expendentitures.map((e) => e as String).toList(),
       preparations: preparations.map((e) => e as String).toList(),
       restrictions: restrictions.map((e) => e as String).toList(),
